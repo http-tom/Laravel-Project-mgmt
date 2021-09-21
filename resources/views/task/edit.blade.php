@@ -152,7 +152,7 @@
 
     <script src="{{ asset('js/bootstrap-datepicker.min.js') }}"></script>  
 
-	<script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
+	<script src="https://cdn.tiny.cloud/1/<?=getenv('TINY_KEY')?>/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 
 	<script>
 
