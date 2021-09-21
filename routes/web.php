@@ -15,8 +15,13 @@ Auth::routes();
 
 
 Route::get('/', function () {
-	// return view('welcome');
-	return redirect('/login') ;
+	if(Auth::check())
+	{
+		return redirect('/admin/tasks');
+	}
+	else {
+		return redirect('/login') ;
+	}
 });
 
 
