@@ -43,24 +43,16 @@ class ProjectController extends Controller
     {
         $projects_count = Project::count() ;
       
-        if ( $projects_count < 10  ) {  
-            
-            // dd( $request->all()  ) ;
-            $this->validate( $request, [
-                'project' => 'required'
-            ] ) ;        
-    
-            $project_new = new Project;
-            $project_new->project_name = $request->project;
-            $project_new->save() ;
-            Session::flash('success', 'Project Created') ;
-            return redirect()->route('project.show') ;
-        }
-        
-        else {
-            Session::flash('info', 'Please delete some projects, Demo max: 10') ;
-            return redirect()->route('project.show') ;          
-        }
+        // dd( $request->all()  ) ;
+        $this->validate( $request, [
+            'project' => 'required'
+        ] ) ;        
+
+        $project_new = new Project;
+        $project_new->project_name = $request->project;
+        $project_new->save() ;
+        Session::flash('success', 'Project Created') ;
+        return redirect()->route('project.show') ;
     }
 
     /**

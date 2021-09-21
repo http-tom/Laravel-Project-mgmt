@@ -97,15 +97,7 @@ class UserController extends Controller
         $update_user->email = $request->email;
         // update pass is available
         if ($request->has('password') ) $update_user->password = bcrypt($request->password) ;
-        $update_user->save() ;
-
-	    // reset demo user 
-	    $reset_demo = User::find(5) ;
-	    $reset_demo->admin = 1 ;
-	    $reset_demo->name = 'Demo User' ;
-	    $reset_demo->email = 'demo@test.com' ;
-	    $reset_demo->password = bcrypt('demo2017') ;
-	    $reset_demo->save() ;         
+        $update_user->save();        
 
         Session::flash('success', 'User was sucessfully edited') ;
         return redirect()->route('user.index') ;
@@ -120,10 +112,6 @@ class UserController extends Controller
     public function destroy($id)
     {
         $delete_user = User::find($id) ;
-        if ( $delete_user->id == 5 ) {
-	        Session::flash('error', 'Error, demo user cant be deleted') ;
-	        return redirect()->back();
-        }
         $delete_user->delete() ;
         Session::flash('success', 'User was deleted') ;
         return redirect()->back();
@@ -143,10 +131,6 @@ class UserController extends Controller
         
         $user = User::find($id) ;
         
-        if ( $user->id == 5 ) {
-	        Session::flash('error', 'Error, demo user cant be disabled') ;
-	        return redirect()->back();
-        }
         $user->admin = 0;
         $user->save() ;
 

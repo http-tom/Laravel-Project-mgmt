@@ -151,63 +151,55 @@ class TaskController extends Controller
         // dd($request->all() ) ;
         $tasks_count = Task::count() ;
         
-        if ( $tasks_count < 20  ) { 
-            // dd( $request->all()  ) ;
-            // dd($request->file('photos'));
+        // dd( $request->all()  ) ;
+        // dd($request->file('photos'));
 
-            $this->validate( $request, [
-                'task_title' => 'required',
-                'task'       => 'required',
-                'project_id' => 'required|numeric',
-                'photos.*'   => 'sometimes|required|mimes:png,gif,jpeg,jpg,txt,pdf,doc',  // photos is an array: photos.*
-                'duedate'    => 'required'
-            ]) ;
+        $this->validate( $request, [
+            'task_title' => 'required',
+            'task'       => 'required',
+            'project_id' => 'required|numeric',
+            'photos.*'   => 'sometimes|required|mimes:png,gif,jpeg,jpg,txt,pdf,doc',  // photos is an array: photos.*
+            'duedate'    => 'required'
+        ]) ;
 
-            // dd($request->all() ) ;
-            // First save Task Info
-            $task = Task::create([
-                'project_id' => $request->project_id,
-                'user_id'    => $request->user,
-                'task_title' => $request->task_title,
-                'task'       => $request->task,
-                'priority'   => $request->priority,
-                'duedate'    => $request->duedate
-            ]);
+        // dd($request->all() ) ;
+        // First save Task Info
+        $task = Task::create([
+            'project_id' => $request->project_id,
+            'user_id'    => $request->user,
+            'task_title' => $request->task_title,
+            'task'       => $request->task,
+            'priority'   => $request->priority,
+            'duedate'    => $request->duedate
+        ]);
 
-            // Then save files using the newly created ID above
-            if( $request->hasFile('photos') ) {
-                foreach ($request->photos as $file) {
-                    // To Storage
-                    //$filename = $file->store('public'); // /storage/app/public
+        // Then save files using the newly created ID above
+        if( $request->hasFile('photos') ) {
+            foreach ($request->photos as $file) {
+                // To Storage
+                //$filename = $file->store('public'); // /storage/app/public
 
-                    // filename will be saved as: public/wKZsF9ltDSNj82ynh.png
-                    // explode this value at / and get the second element
-                    // $filename = explode("/", $filename ) ; // FOR STORAGE
+                // filename will be saved as: public/wKZsF9ltDSNj82ynh.png
+                // explode this value at / and get the second element
+                // $filename = explode("/", $filename ) ; // FOR STORAGE
 
-                    // If you want to save into  /public/images
-                   // $filename = str_replace(' ' , '' , time() . '_' .$file->getClientOriginalName() );  // get original file name ex:   cat.jpg
-                    // remove whitespaces and dots in filenames : [' ' => '', '.' => ''] 
-                    $filename = strtr( pathinfo( time() . '_' . $file->getClientOriginalName(), PATHINFO_FILENAME) , [' ' => '', '.' => ''] ) . '.' . pathinfo($file->getClientOriginalName(), PATHINFO_EXTENSION);
-                    $file->move('images',$filename);
+                // If you want to save into  /public/images
+                // $filename = str_replace(' ' , '' , time() . '_' .$file->getClientOriginalName() );  // get original file name ex:   cat.jpg
+                // remove whitespaces and dots in filenames : [' ' => '', '.' => ''] 
+                $filename = strtr( pathinfo( time() . '_' . $file->getClientOriginalName(), PATHINFO_FILENAME) , [' ' => '', '.' => ''] ) . '.' . pathinfo($file->getClientOriginalName(), PATHINFO_EXTENSION);
+                $file->move('images',$filename);
 
-                    // save to DB
-                    TaskFiles::create([
-                        'task_id'  => $task->id, // newly created ID
-                        'filename' => $filename  // For Regular Public Images
-                        //'filename' => $filename[1]  // [0] => public, [1] => wKZsF9ltDSNj82ynh.png FOR STORAGE
-                    ]);
-                }
+                // save to DB
+                TaskFiles::create([
+                    'task_id'  => $task->id, // newly created ID
+                    'filename' => $filename  // For Regular Public Images
+                    //'filename' => $filename[1]  // [0] => public, [1] => wKZsF9ltDSNj82ynh.png FOR STORAGE
+                ]);
             }
-    
-            Session::flash('success', 'Task Created') ;
-            return redirect()->route('task.show') ; 
-        }
-        
-        else {
-            Session::flash('info', 'Please delete some tasks, Demo max tasks: 20') ;
-            return redirect()->route('task.show') ;         
         }
 
+        Session::flash('success', 'Task Created') ;
+        return redirect()->route('task.show') ; 
     }
 
 /*===============================================
