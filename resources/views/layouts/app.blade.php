@@ -31,7 +31,7 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
-                       <img src="{{ asset('img/jc_logo_s.png') }}">
+                       {{ getenv('APP_NAME') }}
                     </a>
                 </div>
 

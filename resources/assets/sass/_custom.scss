@@ -1,23 +1,8 @@
-/* @import url('https://fonts.googleapis.com/css?family=Montserrat+Alternates:400,700'); */
-
-@font-face {
-    font-family: Montserrat;
-    font-style: normal;
-    font-weight: 400;
-    src: url('gfonts/Montserrat-Regular.ttf');
-}
-
-@font-face {
-    font-family: Montserrat;
-    font-weight: 700;
-    src: url('gfonts/Montserrat-Bold.ttf');
-}
-
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700');
 
 html, body {
     background-color: #fff;
     color: #636b6f;
-    /* font-family: 'Raleway', sans-serif; */
     font-family: Montserrat;
     font-weight: 100;
     height: 100vh;
@@ -47,6 +32,9 @@ ul.dropdown-menu {
 
 .navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover {
     background-color: #e75f2d;
+}
+.navbar-default .navbar-nav > li > a, .navbar-default .navbar-brand {
+    color: #fff;
 }
 
 .full-height {
@@ -193,3 +181,24 @@ ul#images_col li {
         display: none;
      }
 } 
+
+
+
+
+/*******/
+
+
+.btn-primary {
+    background-color: #2e3244;
+    border-color: #2e3244 !important;
+}
+
+.footer-bottom {
+    background: #646779 !important;
+}
+
+.navbar-default {
+    background-color: #646779 !important;
+    border-radius: 0 !important;
+    border: 0 !important;
+}
