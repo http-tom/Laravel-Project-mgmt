@@ -3,3 +3,4 @@ vendor/
 .vscode/
 .idea/
 .env
+node_modules/
