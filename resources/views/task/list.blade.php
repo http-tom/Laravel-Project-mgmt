@@ -23,22 +23,22 @@
         <td>{{ $task->project->project_name }}</td>
         <td>
             @if ( $task->priority == 0 )
-                <span class="label label-info">Normal</span>
+                <span class="badge bg-info">Normal</span>
             @else
-                <span class="label label-danger">High</span>
+                <span class="badge bg-danger">High</span>
             @endif
         </td>
         <td>
             @if ( !$task->completed )
                 <a href="{{ route('task.completed', ['id' => $task->id]) }}" class="btn btn-warning"> Mark as completed</a>
             @else
-                <span class="label label-success">Completed</span>
+                <span class="badge bg-success">Completed</span>
             @endif
         </td>
         <td>
             <!-- <a href="{{ route('task.edit', ['id' => $task->id]) }}" class="btn btn-primary"> edit </a> -->
-            <a href="{{ route('task.view', ['id' => $task->id]) }}" class="btn btn-primary"> <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> </a>
-            <a href="{{ route('task.delete', ['id' => $task->id]) }}" class="btn btn-danger"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+            <a href="{{ route('task.view', ['id' => $task->id]) }}" class="btn btn-primary"><i class="bi bi-eye"></i></a>
+            <a href="{{ route('task.delete', ['id' => $task->id]) }}" class="btn btn-danger"><i class="bi bi-trash"></i></a>
 
         </td>
       </tr>

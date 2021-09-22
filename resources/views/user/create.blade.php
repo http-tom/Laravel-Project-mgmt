@@ -8,25 +8,25 @@
     {{ csrf_field() }}
 
     <div class="col-md-7">
-    	<label class="form-label">Create new User <span class="glyphicon glyphicon-plus" aria-hidden="true"></span></label>
+    	<label class="form-label">Create new User <i class="bi bi-plus"></i></label>
 
-            <div class="form-group">
+            <div class="mb-3">
                 <input type="text" class="form-control" placeholder="Enter User Full Name" name="name" value="{{ old('name') }}">
             </div>
 
-            <div class="form-group">
+            <div class="mb-3">
                 <input type="text" class="form-control" placeholder="Enter User Email" name="email" value="{{ old('email') }}">
             </div>
 
-            <div class="form-group">
+            <div class="mb-3">
                 <input type="text" class="form-control" placeholder="Enter User Password" name="password">
             </div>
 
 	</div>
 
 	<div class="col-md-5">
-		<div class="form-group">
-			<label class="form-label">Set Status <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></label>
+		<div class="mb-3">
+			<label class="form-label">Set Status <i class="bi bi-info-circle"></i></label>
 			<select name="admin" class="form-control">
 				<option value="0" selected>Disabled (default)</option>
 				<option value="1">Active</option>

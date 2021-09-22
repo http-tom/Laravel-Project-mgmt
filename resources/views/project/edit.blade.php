@@ -7,11 +7,11 @@
 <form id="project_form" action="{{ route('project.update', [ 'id' => $edit_project->id ]) }}" method="POST">
     {{ csrf_field() }}
 
-<label class="form-label">Edit Project <span class="glyphicon glyphicon-edit" aria-hidden="true"></span></label>
+<label class="form-label">Edit Project <i class="bi bi-pencil-square"></i></label>
 
 <div class="row">
     <div class="col-md-8">
-		<div class="form-group">
+		<div class="mb-3">
 			<input type="text" class="form-control" id="project" name="name" value="{{ $edit_project->project_name }}">
 		</div>
 	</div>

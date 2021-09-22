@@ -7,11 +7,11 @@
 <form id="project_form" action="{{ route('project.store') }}" method="POST">
     {{ csrf_field() }}
 
-<label class="form-label">Create a new Project <span class="glyphicon glyphicon-plus" aria-hidden="true"></span></label>
+<label class="form-label">Create a new Project <i class="bi bi-plus"></i></label>
 
 <div class="row">
     <div class="col-md-8">
-		<div class="form-group">
+		<div class="mb-3">
 			<input type="text" class="form-control" id="project" name="project">
 		</div>
 	</div>

@@ -27,18 +27,18 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('user.index') }}"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Users</a>
+                        <a class="nav-link" href="{{ route('user.index') }}"><i class="bi bi-person-fill"></i> Users</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('project.show') }}"><span class="glyphicon glyphicon-list" aria-hidden="true"></span> Projects</a>
+                        <a class="nav-link" href="{{ route('project.show') }}"><i class="bi bi-list-check"></i> Projects</a>
                     </li>
 
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownTasksLink" data-bs-toggle="dropdown" role="button" aria-expanded="false">Tasks</a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownTasksLink">
-                            <li><a class="dropdown-item" href="{{ route('task.show') }}"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> All Tasks</a></li>
-                            <li><a class="dropdown-item" href="{{ route('task.create') }}"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Create new Task</a></li>
+                            <li><a class="dropdown-item" href="{{ route('task.show') }}"><i class="bi bi-card-checklist"></i> All Tasks</a></li>
+                            <li><a class="dropdown-item" href="{{ route('task.create') }}"><i class="bi bi-plus"></i> Create new Task</a></li>
                         </ul>
                     </li>
 
@@ -78,58 +78,37 @@
         </div>
     </nav>
 
-    <section class="main-content">
-    <div class="container">   
-        
+    <section class="main-content my-5">
+        <div class="container">   
             @yield('content')
-        
-    </div>
+        </div>
     </section>
 
-    <!--   FOOTER -->
-    
     <div class="footer-bottom">
-
         <div class="container">
-    
-            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-
-                <div class="copyright">
-
-                    &copy; {{ date('Y') }}
-
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                    <div class="copyright">
+                        &copy; {{ date('Y') }}
+                    </div>
                 </div>
 
-            </div>
-
-            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 text-right">
-
-                <div class="design">
-
-                    With thanks to <a target="_blank" href="http://juancadima.com">JC</a>
-
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 text-right">
+                    <div class="design">
+                        With thanks to <a target="_blank" href="http://juancadima.com">JC</a>
+                    </div>
                 </div>
-
             </div>
-
         </div>
-
     </div>
     
 
 </body>
 
-{{-- <script src="{{ asset('js/jquery-3.2.1.min.js') }}"></script> --}}
-
-{{-- <script src="{{ asset('js/bootstrap.min.js') }}"></script>     --}}
 <script src="{{ asset('js/app.js') }}"></script>
-
 <script src="{{asset('js/toastr.min.js') }}"></script>
-
 <script src="{{ asset('js/sweetalert2.min.js') }}"></script>
-
 <script>
-
 @if ( Session::has('success') )
     toastr.success("{{ Session::get('success') }}")
 @endif
@@ -138,14 +117,10 @@
     toastr.info("{{ Session::get('info') }}")
 @endif
 
-
 @if ( Session::has('error') )
     toastr.error("{{ Session::get('error') }}")
 @endif
-
 </script>
 
 @yield('scripts')
-
-
 </html>

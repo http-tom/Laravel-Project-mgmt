@@ -26,28 +26,28 @@
 
     <div class="col-md-8">
 
-    	<div class="form-group">
+    	<div class="mb-3">
     		<label class="form-label">Edit Task Title</label>
 			<input type="text" class="form-control"  name="task_title" value="{{ $task->task_title }}">
 		</div>
 
-		<div class="form-group">
-        <label class="form-label">Add Project Files (png,gif,jpeg,jpg,txt,pdf,doc) <span class="glyphicon glyphicon-file" aria-hidden="true"></span></label>
+		<div class="mb-3">
+        <label class="form-label">Add Project Files (png,gif,jpeg,jpg,txt,pdf,doc) <i class="bi bi-file-earmark"></i></label>
            	<input type="file" class="form-control" name="photos[]" multiple>
        	</div>
 
-    	<div class="form-group">
+    	<div class="mb-3">
     		<label class="form-label">Edit task</label>
 			<textarea class="form-control my-editor" rows="5" id="task" name="task">{{ $task->task }}</textarea>
 		</div>
 
-		<div class="form-group">
+		<div class="mb-3">
 		@if( count($taskfiles) > 0  )
 		<label class="form-label">Files</label>
 		<ul class="fileslist">
            	@foreach( $taskfiles as $file) 
 			    <li>{{ $file->filename }} <span>&nbsp;&nbsp;</span> <a class="btn btn-danger" href="{{ route('task.deletefile', [ 'id' => $file->id]) }}">
-			   		<span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+					<i class="bi bi-trash"></i></a>
 				</li>
 			@endforeach
 		</ul>
@@ -59,8 +59,8 @@
 	<div class="col-md-4">
 
 
-        <div class="form-group">
-			 <label class="form-label">Assigned to User <span class="glyphicon glyphicon-user" aria-hidden="true"></span></label>
+        <div class="mb-3">
+			 <label class="form-label">Assigned to User <i class="bi bi-person-fill"></i></label>
 
               <select name="user_id" id="user_id" class="form-control">
                     @foreach( $users as $user)
@@ -74,8 +74,8 @@
               </select>
         </div>
 
-        <div class="form-group">
-			 <label class="form-label">Assigned to Project <span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span></label>
+        <div class="mb-3">
+			 <label class="form-label">Assigned to Project <i class="bi bi-pin-angle"></i></label>
 
               <select name="project_id" id="project_id" class="form-control">
                     @foreach( $projects as $project)
@@ -90,8 +90,8 @@
         </div>
 
 	
-		<div class="form-group">
-			<label class="form-label">Edit Priority <span class="glyphicon glyphicon-warning-sign" aria-hidden="true"></span></label>
+		<div class="mb-3">
+			<label class="form-label">Edit Priority <i class="bi bi-exclamation-triangle"></i></label>
 			<select name="priority" class="form-control">
 				@if( $task->priority == 0 )
 			  		<option value="0" selected>Normal</option>
@@ -103,8 +103,8 @@
 			</select>
 		</div>
 
-		<div class="form-group">
-			<label class="form-label">Edit Status <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></label>
+		<div class="mb-3">
+			<label class="form-label">Edit Status <i class="bi bi-info-circle"></i></label>
 			<select name="completed" class="form-control">
 				@if( $task->completed == 0 )
 			  		<option value="0" selected>Not Completed</option>
@@ -117,27 +117,21 @@
 		</div>
 
 
-        <div class="form-group">
-            <label class="form-label">Edit Due Date <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span></label>
+        <div class="mb-3">
+            <label class="form-label">Edit Due Date <i class="bi bi-calendar-event"></i></label>
      
-                <div class='input-group date' id='datetimepicker1'>
-					<input type='text' class="form-control" name="duedate" value="{{ $task->duedate }}">
-					<span class="input-group-addon">
-					<span class="glyphicon glyphicon-calendar"></span>
-					</span>
-				</div>
+			<div class="input-group date" id="datetimepicker1">
+				<input type="text" class="form-control" name="duedate" value="{{ $task->duedate }}">
+				<i class="bi bi-calendar-event"></i>
+			</div>
         </div>
-		
 
 
 		<div class="btn-group">
 			<input class="btn btn-primary" type="submit" value="Submit">
 			<a class="btn btn-secondary" href="{{ redirect()->getUrlGenerator()->previous() }}">Go Back</a>
 		</div>
-
 	</div>
-
-
 
 
 </form>
@@ -147,21 +141,15 @@
 
 
 @section('scripts')
-
     <script src="{{ asset('js/moment.js') }}"></script> 
-
     <script src="{{ asset('js/bootstrap-datepicker.min.js') }}"></script>  
-
 	<script src="https://cdn.tiny.cloud/1/<?=getenv('TINY_KEY')?>/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
-
 	<script>
-
 		jQuery('#datetimepicker1').datetimepicker( {
 			defaultDate:'now',  // defaults to today
 			format: 'YYYY-MM-DD hh:mm:ss'   // YEAR-MONTH-DAY hour:minute:seconds
 			// minDate:new Date()  // Disable previous dates, minimum is todays date
 		});
-
 	</script>
 
 <script>
@@ -208,8 +196,5 @@
 
   tinymce.init(editor_config);
 </script>
- 
-
-
 
 @stop
