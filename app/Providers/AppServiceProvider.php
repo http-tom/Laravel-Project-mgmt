@@ -5,6 +5,7 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 // Include Schema
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Pagination\Paginator;
 
 
 class AppServiceProvider extends ServiceProvider
@@ -18,7 +19,9 @@ class AppServiceProvider extends ServiceProvider
     {
         // https://laravel-news.com/laravel-5-4-key-too-long-error
         // Fix Laravel 5.4  utf8mb4:
-        Schema::defaultStringLength(191) ;
+        Schema::defaultStringLength(191);
+        // Fix Laravel 8.0 to use bootstrap for paginator instead of new TailwindCSS default
+        Paginator::useBootstrap();
     }
 
     /**
