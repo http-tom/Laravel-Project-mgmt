@@ -16,7 +16,7 @@
     @yield('styles')
 
 </head>
-<body>
+<body class="d-flex flex-column h-100">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="/">{{ getenv('APP_NAME') }}</a>
@@ -31,19 +31,18 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('project.show') }}"><i class="bi bi-list-check"></i> Projects</a>
+                        <a class="nav-link" href="{{ route('project.show') }}"><i class="bi bi-box"></i> Projects</a>
                     </li>
 
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownTasksLink" data-bs-toggle="dropdown" role="button" aria-expanded="false">Tasks</a>
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownTasksLink" data-bs-toggle="dropdown" role="button" aria-expanded="false"><i class="bi bi-list-check"></i> Tasks</a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownTasksLink">
                             <li><a class="dropdown-item" href="{{ route('task.show') }}"><i class="bi bi-card-checklist"></i> All Tasks</a></li>
                             <li><a class="dropdown-item" href="{{ route('task.create') }}"><i class="bi bi-plus"></i> Create new Task</a></li>
                         </ul>
                     </li>
-
-
                 </ul>
+
                 <!-- Right Side Of Navbar -->
                 <div class="">
                     <ul class="navbar-nav">
@@ -59,10 +58,12 @@
 
                                 <ul class="dropdown-menu">
                                     <li>
+                                        <a class="dropdown-item" href="{{ route('about') }}"><i class="bi bi-people-fill"></i> About</a>
+                                    </li>
+                                    <li>
                                         <a class="dropdown-item" href="{{ route('logout') }}"
-                                            onclick="event.preventDefault();
-                                                    document.getElementById('logout-form').submit();">
-                                            Logout
+                                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                            <i class="bi bi-power"></i> Logout
                                         </a>
 
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -74,7 +75,7 @@
                         @endif
                     </ul>
                 </div>
-            </div><!-- /.navbar-collapse -->
+            </div>
         </div>
     </nav>
 
@@ -84,7 +85,7 @@
         </div>
     </section>
 
-    <div class="footer-bottom">
+    <footer class="mt-auto">
         <div class="container">
             <div class="row">
                 <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
@@ -100,7 +101,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </foot>
     
 
 </body>

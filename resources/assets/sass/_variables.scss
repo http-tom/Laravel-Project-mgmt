@@ -2,6 +2,7 @@
 // Body
 $body-bg: #f5f8fa;
 $bg-dark: #2E3244;
+$bg-darkish: #646779;
 
 // Borders
 $laravel-border-color: darken($body-bg, 10%);
@@ -22,7 +23,7 @@ $primary: $bg-dark;
 // Typography
 $icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
 $font-family-sans-serif: "Raleway", sans-serif;
-$font-size-base: 1rem;
+$font-size-base: 0.9rem;
 $line-height-base: 1.6;
 $text-color: #636b6f;
 

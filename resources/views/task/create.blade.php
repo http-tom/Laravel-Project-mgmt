@@ -3,8 +3,6 @@
 
 @section('styles')
 
-    <link rel="stylesheet" href="{{ asset('css/bootstrap-datepicker.min.css') }}">
-
 @stop
 
 
@@ -63,10 +61,7 @@
 
         <div class="mb-3">
             <label class="form-label">Select Due Date <i class="bi bi-calendar-event"></i></label>
-            <div class="input-group date" id="datetimepicker1">
-                <input type='text' class="form-control" name="duedate">
-                <i class="bi bi-calendar-event"></i>
-            </div>
+            <input type="datetime-local" class="form-control" name="duedate">
         </div>
 
         <div class="btn-group">
@@ -84,26 +79,8 @@
 
 
 @section('scripts')
-
-    <script src="{{ asset('js/moment.js') }}"></script> 
-
-    <script src="{{ asset('js/bootstrap-datepicker.min.js') }}"></script>  
-
-    <script src="https://cdn.tiny.cloud/1/<?=getenv('TINY_KEY')?>/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
-
-    <script>
-        jQuery(document).ready(function() {
-
-            jQuery(function() {
-                jQuery('#datetimepicker1').datetimepicker( {
-                    defaultDate:'now',  // defaults to today
-                    format: 'YYYY-MM-DD hh:mm:ss',  // YEAR-MONTH-DAY hour:minute:seconds
-                    minDate:new Date()  // Disable previous dates, minimum is todays date
-                });
-            });
-        });
-    </script>
-
+<script src="{{ asset('js/moment.js') }}"></script> 
+<script src="https://cdn.tiny.cloud/1/<?=getenv('TINY_KEY')?>/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 <script>
   var editor_config = {
     //path_absolute : "/",

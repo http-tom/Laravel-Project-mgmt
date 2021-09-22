@@ -24,17 +24,17 @@
 </div>
 
 <div class="table-responsive">
-<table class="table table-striped">
-    <thead>
-      <tr>
-        <th>Created At</th>
-        <th><a href="{{ route('task.sort', [ 'key' => 'task' ]) }}">Task Title <i class="bi bi-sort-alpha-down"></i> </a></th>
-        <th>Assigned To / Project</th>
-        <th><a href="{{ route('task.sort', [ 'key' => 'priority' ]) }}">Priority <i class="bi bi-sort-alpha-down"></i> </a></th>
-        <th><a href="{{ route('task.sort', [ 'key' => 'completed' ]) }}">Status <i class="bi bi-sort-alpha-down"></i> </a></th>
-        <th>Actions</th>
-      </tr>
-    </thead>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Created At</th>
+                <th><a href="{{ route('task.sort', [ 'key' => 'task' ]) }}">Task Title <i class="bi bi-sort-alpha-down"></i> </a></th>
+                <th>Assigned To / Project</th>
+                <th><a href="{{ route('task.sort', [ 'key' => 'priority' ]) }}">Priority <i class="bi bi-sort-alpha-down"></i> </a></th>
+                <th><a href="{{ route('task.sort', [ 'key' => 'completed' ]) }}">Status <i class="bi bi-sort-alpha-down"></i> </a></th>
+                <th>Actions</th>
+            </tr>
+        </thead>
 
 @if ( !$tasks->isEmpty() ) 
     <tbody>
@@ -61,7 +61,7 @@
                 <span class="badge bg-danger">High</span>
             @endif
         </td>
-        <td>
+        <td class="text-center">
             @if ( !$task->completed )
                 <a href="{{ route('task.completed', ['id' => $task->id]) }}" class="btn btn-warning"> Mark as completed</a>
                 <span class="badge bg-danger">{{ ( $task->duedate < Carbon\Carbon::now() )  ? "!" : "" }}</span>
@@ -74,7 +74,7 @@
         </td>
         <td>
             <a href="{{ route('task.view', ['id' => $task->id]) }}" class="btn btn-primary"><i class="bi bi-eye"></i></a>
-            <!-- <a href="{{ route('task.edit', ['id' => $task->id]) }}" class="btn btn-primary"> edit </a>  -->
+            <!-- <a href="{{ route('task.edit', ['id' => $task->id]) }}" class="btn btn-primary">Edit</a>  -->
             <a href="{{ route('task.delete', ['id' => $task->id]) }}" class="btn btn-danger"><i class="bi bi-trash"></i></a>
 
         </td>
@@ -91,7 +91,7 @@
 @endif
 
 
-</table>
+    </table>
 </div>
 
 

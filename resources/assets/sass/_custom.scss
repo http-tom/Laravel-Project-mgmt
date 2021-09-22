@@ -35,16 +35,17 @@ ul#images_col img {
     max-height: 100px;
 }
 
-.footer-bottom {
-    background: $bg-dark;
+footer {
+    background: $bg-darkish;
     color:#fff;
     padding: 20px 15px;
     margin-top: 20px;
+    
+    a {
+        color: #fff;
+    }
 }
 
-.footer-bottom a {
-    color: #fff;
-}
 
 ul#images_col {
     list-style-type: none;
@@ -61,10 +62,6 @@ ul.fileslist li {
 
 ul#images_col li {
     padding-bottom: 10px;
-}
-
-.footer-bottom {
-    background: #646779 !important;
 }
 
 .text-right {

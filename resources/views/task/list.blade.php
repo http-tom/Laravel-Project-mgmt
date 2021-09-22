@@ -36,7 +36,7 @@
             @endif
         </td>
         <td>
-            <!-- <a href="{{ route('task.edit', ['id' => $task->id]) }}" class="btn btn-primary"> edit </a> -->
+            <!-- <a href="{{ route('task.edit', ['id' => $task->id]) }}" class="btn btn-primary">Edit</a> -->
             <a href="{{ route('task.view', ['id' => $task->id]) }}" class="btn btn-primary"><i class="bi bi-eye"></i></a>
             <a href="{{ route('task.delete', ['id' => $task->id]) }}" class="btn btn-danger"><i class="bi bi-trash"></i></a>
 

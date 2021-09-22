@@ -85,4 +85,6 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
     Route::get('/users/delete/{id}', 'UserController@destroy')->name('user.delete') ;
     Route::get('/users/disable/{id}', 'UserController@disable')->name('user.disable') ;
 
+	Route::get('/about', 'PageController@about')->name('about');
+
 });
