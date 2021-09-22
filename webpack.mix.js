@@ -13,5 +13,5 @@ mix.setPublicPath('public_html/');
  |
  */
 
-mix.js('resources/assets/js/app.js', 'js')
-   .sass('resources/assets/sass/app.scss', 'css');
+mix.js('resources/js/app.js', 'js')
+   .sass('resources/sass/app.scss', 'css');
