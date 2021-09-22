@@ -13,9 +13,9 @@
             <div class="input-group">
                 <input type="text" class="form-control" placeholder="Search in Tasks..." name="search_task">
                 <span class="input-group-btn">
-                    <button type="submit" class="btn btn-default">
+                    <button type="submit" class="btn btn-secondary">
                         <span class="glyphicon glyphicon-search">
-                            <span class="sr-only">Search...</span>
+                            <span class="visually-hidden">Search...</span>
                         </span>
                     </button>
                 </span>
@@ -52,7 +52,7 @@
                     <a href="{{ route('user.list', [ 'id' => $user->id ]) }}">{{ $user->name }}</a>
                 @endif
             @endforeach
-            <span class="label label-jc">{{ $task->project->project_name }}</span>
+            <span>{{ $task->project->project_name }}</span>
 
         </td>
 

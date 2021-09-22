@@ -6,7 +6,7 @@
 <h1>LIST OF ACTIVE PROJECTS</h1>
 
 <div class="new_project">
-  <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>&nbsp;Add New Project</button>
+  <button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#myModal"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>&nbsp;Add New Project</button>
 </div>
 
 <!-- Modal -->
@@ -16,7 +16,7 @@
     <!-- Modal content-->
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <button type="button" class="btn-close" data-bs-dismiss="modal">&times;</button>
         <h4 class="modal-title">Enter Project Title</h4>
       </div>
       <div class="modal-body">
@@ -34,7 +34,7 @@
 
         <div class="modal-footer">
           <input class="btn btn-primary" type="submit" value="Submit" >
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
         </div>
 
         </form>

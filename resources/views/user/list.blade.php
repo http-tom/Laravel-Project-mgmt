@@ -55,7 +55,7 @@
 
 
 <div class="btn-group">
-    <a class="btn btn-default" href="{{ redirect()->getUrlGenerator()->previous() }}">Go Back</a>
+    <a class="btn btn-secondary" href="{{ redirect()->getUrlGenerator()->previous() }}">Go Back</a>
 </div>
 
 

@@ -8,7 +8,7 @@
     {{ csrf_field() }}
 
     <div class="col-md-7">
-    	<label>Create new User <span class="glyphicon glyphicon-plus" aria-hidden="true"></span></label>
+    	<label class="form-label">Create new User <span class="glyphicon glyphicon-plus" aria-hidden="true"></span></label>
 
             <div class="form-group">
                 <input type="text" class="form-control" placeholder="Enter User Full Name" name="name" value="{{ old('name') }}">
@@ -26,7 +26,7 @@
 
 	<div class="col-md-5">
 		<div class="form-group">
-			<label>Set Status <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></label>
+			<label class="form-label">Set Status <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></label>
 			<select name="admin" class="form-control">
 				<option value="0" selected>Disabled (default)</option>
 				<option value="1">Active</option>
@@ -35,7 +35,7 @@
 
 		<div class="btn-group">
 			<input class="btn btn-primary" type="submit" value="Submit" onclick="return validateForm()">
-			<a class="btn btn-default" href="{{ redirect()->getUrlGenerator()->previous() }}">Go Back</a>
+			<a class="btn btn-secondary" href="{{ redirect()->getUrlGenerator()->previous() }}">Go Back</a>
 		</div>
 
 	</div>

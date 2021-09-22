@@ -14,14 +14,14 @@ task_view->id: {{ $task_view->id }}<br>
     <h1>{{ $task_view->task_title }}</h1>
 
     <div class="form-group">
-        <label>Description:</label>
+        <label class="form-label">Description:</label>
         <p>{!! $task_view->task !!}</p>
     </div>
         
 
     <div class="btn-group">
         <a href="{{ route('task.edit', ['id' => $task_view->id ]) }}" class="btn btn-primary"> edit </a>
-        <a class="btn btn-default" href="{{ route('task.show') }}">Go Back</a>
+        <a class="btn btn-secondary" href="{{ route('task.show') }}">Go Back</a>
     </div>
 
     <div class="row">
@@ -29,7 +29,7 @@ task_view->id: {{ $task_view->id }}<br>
         @if( count($images_set) > 0 ) 
             <div class="col-md-6">
 
-                <div class="panel panel-jc">
+                <div class="panel">
                     <div class="panel-heading">Uploaded Images</div>
                     <div class="panel-body">
                         <ul id="images_col">
@@ -52,7 +52,7 @@ task_view->id: {{ $task_view->id }}<br>
         @if( count($files_set) > 0 ) 
             <div class="col-md-6">
 
-                <div class="panel panel-jc">
+                <div class="panel">
                     <div class="panel-heading"> Uploaded Files</div>
                     <div class="panel-body">
                         <ul id="images_col">
@@ -78,16 +78,16 @@ task_view->id: {{ $task_view->id }}<br>
 <div class="col-md-4">
 
 
-    <div class="panel panel-jc">
+    <div class="panel">
         <div class="panel-heading">Project</div>
         <div class="panel-body">
-            <span class="label label-jc">
+            <span>
                 <a href="{{ route('task.list', [ 'projectid' => $task_view->project->id ]) }}">{{ $task_view->project->project_name }}</a>
             </span>
         </div>
     </div>
 
-    <div class="panel panel-jc">
+    <div class="panel">
         <div class="panel-heading">Priority</div>
         <div class="panel-body">
             @if ( $task_view->priority == 0 )
@@ -100,14 +100,14 @@ task_view->id: {{ $task_view->id }}<br>
 
 
 
-    <div class="panel panel-jc">
+    <div class="panel">
         <div class="panel-heading">Created</div>
         <div class="panel-body">
             {{ $formatted_from }} 
         </div>
     </div>
 
-    <div class="panel panel-jc">
+    <div class="panel">
         <div class="panel-heading">Due Date</div>
         <div class="panel-body">
             {{ $formatted_to }} 
@@ -115,7 +115,7 @@ task_view->id: {{ $task_view->id }}<br>
     </div>
 
 
-    <div class="panel panel-jc">
+    <div class="panel">
         <div class="panel-heading">Status</div>
         <div class="panel-body">
             @if ( $task_view->completed == 0 )
