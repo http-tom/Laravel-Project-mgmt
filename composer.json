@@ -6,7 +6,7 @@
     "type": "project",
     "require": {
         "php": ">=7.3.0",
-        "laravel/framework": "5.8.*",
+        "laravel/framework": "^6.0",
         "laravel/tinker": "~1.0",
         "unisharp/laravel-filemanager": "~1.8"
     },
@@ -40,7 +40,8 @@
             "Illuminate\\Foundation\\ComposerScripts::postInstall"
         ],
         "post-update-cmd": [
-            "Illuminate\\Foundation\\ComposerScripts::postUpdate"
+            "Illuminate\\Foundation\\ComposerScripts::postUpdate",
+            "@php artisan view:clear"
         ],
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
