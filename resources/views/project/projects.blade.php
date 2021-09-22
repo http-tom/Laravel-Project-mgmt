@@ -15,7 +15,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <h4 class="modal-title">Enter Project Title</h4>
-        <button type="button" class="btn-close" data-bs-dismiss="modal">&times;</button>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
       </div>
       <div class="modal-body">
         <form id="project_form" action="{{ route('project.store') }}" method="POST">
@@ -30,9 +30,9 @@
 
         </div>
 
-        <div class="modal-footer">
-          <input class="btn btn-primary" type="submit" value="Submit" >
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <div class="modal-footer d-flex">
+          <button type="button" class="btn btn-secondary me-auto" data-bs-dismiss="modal">Close</button>
+          <input class="btn btn-primary" type="submit" value="Submit">
         </div>
 
         </form>
@@ -46,6 +46,7 @@
 
 
 
+@if ( !$projects->isEmpty() ) 
 <div class="table-responsive">
 <table class="table table-striped">
     <thead>
@@ -56,7 +57,6 @@
       </tr>
     </thead>
 
-@if ( !$projects->isEmpty() ) 
     <tbody>
     @foreach ( $projects  as $project)
       <tr>
@@ -73,15 +73,14 @@
 
     @endforeach
     </tbody>
+    
+    
+  </table>
+</div>
+
 @else 
     <p><em>There are no tasks assigned yet</em></p>
 @endif
-
-
-</table>
-</div>
-
-
 
 
 @stop

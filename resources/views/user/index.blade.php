@@ -10,7 +10,7 @@
 
 
 <div class="new_project">
-  <button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#myModal"><i class="bi bi-plus"></i>&nbsp;Add New User</button>
+  <button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#myModal"><i class="bi bi-person-plus-fill"></i>&nbsp;Add New User</button>
 </div>
 
 <!-- Modal -->
@@ -21,33 +21,28 @@
     <div class="modal-content">
         <div class="modal-header">
             <h4 class="modal-title">Enter User Information</h4>
-            <button type="button" class="btn-close" data-bs-dismiss="modal">&times;</button>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
         </div>
 
         <div class="modal-body">
         <form id="task_form" action="{{ route('user.store') }}" method="POST">
             {{ csrf_field() }}
             <div class="row">
-                <div class="col-md-7">
-                    <label class="form-label">Create new User <i class="bi bi-plus"></i></label>
-
-                        <div class="mb-3">
-                            <input type="text" class="form-control" placeholder="Enter User Full Name" name="name" value="{{ old('name') }}">
-                        </div>
-
-                        <div class="mb-3">
-                            <input type="text" class="form-control" placeholder="Enter User Email" name="email" value="{{ old('email') }}">
-                        </div>
-
-                        <div class="mb-3">
-                            <input type="text" class="form-control" placeholder="Enter User Password" name="password">
-                        </div>
-
-                </div>
-
-                <div class="col-md-5">
+                <div class="col-md-12">
                     <div class="mb-3">
-                        <label class="form-label">Set Status <i class="bi bi-info-circle"></i></label>
+                        <input type="text" class="form-control" placeholder="Enter User Full Name" name="name" value="{{ old('name') }}">
+                    </div>
+
+                    <div class="mb-3">
+                        <input type="text" class="form-control" placeholder="Enter User Email" name="email" value="{{ old('email') }}">
+                    </div>
+
+                    <div class="mb-3">
+                        <input type="text" class="form-control" placeholder="Enter User Password" name="password">
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Set Status <i class="bi bi-lightbulb"></i></label>
                         <select name="admin" class="form-control">
                             <option value="0" selected>Disabled (default)</option>
                             <option value="1">Active</option>
@@ -57,9 +52,9 @@
                 </div>
             </div>
 
-            <div class="modal-footer">
-                <input class="btn btn-primary" type="submit" value="Submit" >
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <div class="modal-footer d-flex">
+                <button type="button" class="btn btn-secondary me-auto" data-bs-dismiss="modal">Close</button>
+                <input class="btn btn-primary" type="submit" value="Submit">
             </div>
 
 

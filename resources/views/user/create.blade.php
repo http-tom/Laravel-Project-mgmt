@@ -26,7 +26,7 @@
 
 	<div class="col-md-5">
 		<div class="mb-3">
-			<label class="form-label">Set Status <i class="bi bi-info-circle"></i></label>
+			<label class="form-label">Set Status <i class="bi bi-lightbulb"></i></label>
 			<select name="admin" class="form-control">
 				<option value="0" selected>Disabled (default)</option>
 				<option value="1">Active</option>
