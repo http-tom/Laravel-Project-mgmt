@@ -70,3 +70,43 @@ ul#images_col li {
 .text-center {
     text-align: center;
 }
+
+.bg-darkish {
+    background-color: $bg-darkish;
+}
+
+.navbar {
+    padding: 0;
+
+    .navbar-nav {
+        .nav-link {
+            padding: 1.2rem 1rem;
+        }
+
+        .dropdown-toggle.show {
+            background-color: #e4a01f;
+            color:#101010;
+        }
+
+        ul.dropdown-menu.show {
+            padding: 0 0rem;
+            margin-top: 0rem;
+            border-radius: 0;
+            min-width: 100%;
+
+            li {
+                .dropdown-item {
+                    padding: 0.9rem 1rem;
+                    filter: invert(1);
+                    
+                    &:hover, &:focus {
+                        color: #1e2125;
+                        color: #efefef;
+                        // background-color: #e4a01f;
+                        background-color: #1b5fe0;
+                    }
+                }
+            }
+        }
+    }
+}

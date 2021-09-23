@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ getenv('APP_NAME') }}</title>
 
@@ -17,8 +18,8 @@
 
 </head>
 <body class="d-flex flex-column h-100">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container-fluid">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-darkish">
+        <div class="container">
             <a class="navbar-brand" href="/">{{ getenv('APP_NAME') }}</a>
             <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#bs-example-navbar-collapse-1" aria-controls="bs-example-navbar-collapse-1" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -36,7 +37,7 @@
 
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownTasksLink" data-bs-toggle="dropdown" role="button" aria-expanded="false"><i class="bi bi-list-check"></i> Tasks</a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownTasksLink">
+                        <ul class="dropdown-menu bg-dark border-0" aria-labelledby="navbarDropdownTasksLink">
                             <li><a class="dropdown-item" href="{{ route('task.show') }}"><i class="bi bi-card-checklist"></i> All Tasks</a></li>
                             <li><a class="dropdown-item" href="{{ route('task.create') }}"><i class="bi bi-plus"></i> Create new Task</a></li>
                         </ul>
@@ -56,7 +57,7 @@
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
 
-                                <ul class="dropdown-menu">
+                                <ul class="dropdown-menu bg-dark border-0">
                                     <li>
                                         <a class="dropdown-item" href="{{ route('about') }}"><i class="bi bi-people-fill"></i> About</a>
                                     </li>

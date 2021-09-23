@@ -11346,6 +11346,36 @@ ul#images_col li {
   text-align: center;
 }
 
+.bg-darkish {
+  background-color: #646779;
+}
+
+.navbar {
+  padding: 0;
+}
+.navbar .navbar-nav .nav-link {
+  padding: 1.2rem 1rem;
+}
+.navbar .navbar-nav .dropdown-toggle.show {
+  background-color: #e4a01f;
+  color: #101010;
+}
+.navbar .navbar-nav ul.dropdown-menu.show {
+  padding: 0 0rem;
+  margin-top: 0rem;
+  border-radius: 0;
+  min-width: 100%;
+}
+.navbar .navbar-nav ul.dropdown-menu.show li .dropdown-item {
+  padding: 0.9rem 1rem;
+  filter: invert(1);
+}
+.navbar .navbar-nav ul.dropdown-menu.show li .dropdown-item:hover, .navbar .navbar-nav ul.dropdown-menu.show li .dropdown-item:focus {
+  color: #1e2125;
+  color: #efefef;
+  background-color: #1b5fe0;
+}
+
 @font-face {
   font-family: "bootstrap-icons";
   src: url(/fonts/vendor/bootstrap-icons/bootstrap-icons.woff2?dfd0ea122577eb61795f178e0347fa2c) format("woff2"), url(/fonts/vendor/bootstrap-icons/bootstrap-icons.woff?94eeade15e6b7fbed95b18ff32f0c112) format("woff");
