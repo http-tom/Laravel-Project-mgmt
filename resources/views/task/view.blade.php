@@ -13,25 +13,24 @@ task_view->id: {{ $task_view->id }}<br>
 <div class="col-md-8">
     <h1>{{ $task_view->task_title }}</h1>
 
-    <div class="form-group">
-        <label>Description:</label>
+    <div class="mb-3">
+        <label class="form-label">Description:</label>
         <p>{!! $task_view->task !!}</p>
     </div>
         
 
     <div class="btn-group">
-        <a href="{{ route('task.edit', ['id' => $task_view->id ]) }}" class="btn btn-primary"> edit </a>
-        <a class="btn btn-default" href="{{ route('task.show') }}">Go Back</a>
+        <a href="{{ route('task.edit', ['id' => $task_view->id ]) }}" class="btn btn-primary">Edit</a>
+        <a class="btn btn-secondary" href="{{ route('task.show') }}">Go Back</a>
     </div>
 
-    <div class="row">
-        <hr>
+    <div class="row my-3">
         @if( count($images_set) > 0 ) 
             <div class="col-md-6">
 
-                <div class="panel panel-jc">
-                    <div class="panel-heading">Uploaded Images</div>
-                    <div class="panel-body">
+                <div class="card">
+                    <div class="card-header">Uploaded Images</div>
+                    <div class="card-body">
                         <ul id="images_col">
                             @foreach ( $images_set as $image )
                                 <li> 
@@ -52,9 +51,9 @@ task_view->id: {{ $task_view->id }}<br>
         @if( count($files_set) > 0 ) 
             <div class="col-md-6">
 
-                <div class="panel panel-jc">
-                    <div class="panel-heading"> Uploaded Files</div>
-                    <div class="panel-body">
+                <div class="card">
+                    <div class="card-header"> Uploaded Files</div>
+                    <div class="card-body">
                         <ul id="images_col">
                             @foreach ( $files_set as $file )
                                 <li> 
@@ -78,55 +77,55 @@ task_view->id: {{ $task_view->id }}<br>
 <div class="col-md-4">
 
 
-    <div class="panel panel-jc">
-        <div class="panel-heading">Project</div>
-        <div class="panel-body">
-            <span class="label label-jc">
+    <div class="card mb-3">
+        <div class="card-header">Project</div>
+        <div class="card-body">
+            <span>
                 <a href="{{ route('task.list', [ 'projectid' => $task_view->project->id ]) }}">{{ $task_view->project->project_name }}</a>
             </span>
         </div>
     </div>
 
-    <div class="panel panel-jc">
-        <div class="panel-heading">Priority</div>
-        <div class="panel-body">
+    <div class="card mb-3">
+        <div class="card-header">Priority</div>
+        <div class="card-body">
             @if ( $task_view->priority == 0 )
-                <span class="label label-info">Normal</span>
+                <span class="badge bg-info">Normal</span>
             @else
-                <span class="label label-danger">High</span>
+                <span class="badge bg-danger">High</span>
             @endif
         </div>
     </div>
 
 
 
-    <div class="panel panel-jc">
-        <div class="panel-heading">Created</div>
-        <div class="panel-body">
+    <div class="card mb-3">
+        <div class="card-header">Created</div>
+        <div class="card-body">
             {{ $formatted_from }} 
         </div>
     </div>
 
-    <div class="panel panel-jc">
-        <div class="panel-heading">Due Date</div>
-        <div class="panel-body">
+    <div class="card mb-3">
+        <div class="card-header">Due Date</div>
+        <div class="card-body">
             {{ $formatted_to }} 
         </div>
     </div>
 
 
-    <div class="panel panel-jc">
-        <div class="panel-heading">Status</div>
-        <div class="panel-body">
+    <div class="card mb-3">
+        <div class="card-header">Status</div>
+        <div class="card-body">
             @if ( $task_view->completed == 0 )
-                <span class="label label-warning">Open</span>
+                <span class="badge bg-warning">Open</span>
                 @if ( $is_overdue )
-                    <span class="label label-danger">Overdue</span>
+                    <span class="badge bg-danger">Overdue</span>
                 @else
                     <p><br>{{ $diff_in_days }} days left to complete this task</p>
                 @endif                
             @else
-                <span class="label label-success">Closed</span>
+                <span class="badge bg-success">Closed</span>
             @endif
         </div>
     </div>

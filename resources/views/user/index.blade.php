@@ -10,7 +10,7 @@
 
 
 <div class="new_project">
-  <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>&nbsp;Add New User</button>
+  <button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#myModal"><i class="bi bi-person-plus-fill"></i>&nbsp;Add New User</button>
 </div>
 
 <!-- Modal -->
@@ -20,34 +20,29 @@
     <!-- Modal content-->
     <div class="modal-content">
         <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
             <h4 class="modal-title">Enter User Information</h4>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
         </div>
 
         <div class="modal-body">
         <form id="task_form" action="{{ route('user.store') }}" method="POST">
             {{ csrf_field() }}
             <div class="row">
-                <div class="col-md-7">
-                    <label>Create new User <span class="glyphicon glyphicon-plus" aria-hidden="true"></span></label>
+                <div class="col-md-12">
+                    <div class="mb-3">
+                        <input type="text" class="form-control" placeholder="Enter User Full Name" name="name" value="{{ old('name') }}">
+                    </div>
 
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Enter User Full Name" name="name" value="{{ old('name') }}">
-                        </div>
+                    <div class="mb-3">
+                        <input type="text" class="form-control" placeholder="Enter User Email" name="email" value="{{ old('email') }}">
+                    </div>
 
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Enter User Email" name="email" value="{{ old('email') }}">
-                        </div>
+                    <div class="mb-3">
+                        <input type="text" class="form-control" placeholder="Enter User Password" name="password">
+                    </div>
 
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Enter User Password" name="password">
-                        </div>
-
-                </div>
-
-                <div class="col-md-5">
-                    <div class="form-group">
-                        <label>Set Status <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></label>
+                    <div class="mb-3">
+                        <label class="form-label">Set Status <i class="bi bi-lightbulb"></i></label>
                         <select name="admin" class="form-control">
                             <option value="0" selected>Disabled (default)</option>
                             <option value="1">Active</option>
@@ -57,9 +52,9 @@
                 </div>
             </div>
 
-            <div class="modal-footer">
-                <input class="btn btn-primary" type="submit" value="Submit" >
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <div class="modal-footer d-flex">
+                <button type="button" class="btn btn-secondary me-auto" data-bs-dismiss="modal">Close</button>
+                <input class="btn btn-primary" type="submit" value="Submit">
             </div>
 
 
@@ -101,13 +96,13 @@
                 <a href="{{ route('user.activate', ['id' => $user->id]) }}" class="btn btn-warning"> Activate User</a>
             @else
                 <a href="{{ route('user.disable', ['id' => $user->id]) }}" class="btn btn-warning"> Disable User</a>
-                <span class="label label-success">Active</span>
+                <span class="badge bg-success">Active</span>
             @endif
         </td>
         <td>
-            <a href="{{ route('user.edit', ['id' => $user->id]) }}" class="btn btn-primary"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
+            <a href="{{ route('user.edit', ['id' => $user->id]) }}" class="btn btn-primary"><i class="bi bi-pencil-fill"></i></a>
  
-            <a href="{{ route('user.delete', ['id' => $user->id]) }}" class="btn btn-danger" Onclick="return ConfirmDelete();"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+            <a href="{{ route('user.delete', ['id' => $user->id]) }}" class="btn btn-danger" onclick="return ConfirmDelete();"><i class="bi bi-trash"></i></a>
 
         </td>
       </tr>

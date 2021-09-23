@@ -3,8 +3,6 @@
 
 @section('styles')
 
-    <link rel="stylesheet" href="{{ asset('css/bootstrap-datepicker.min.css') }}">
-
 @stop
 
 
@@ -16,26 +14,26 @@
     {{ csrf_field() }}
 
     <div class="col-md-8">
-        <label>Create new task <span class="glyphicon glyphicon-plus" aria-hidden="true"></span></label>
+        <label class="form-label">Create new task <i class="bi bi-plus"></i></label>
 
-        <div class="form-group">
+        <div class="mb-3">
             <input type="text" class="form-control" placeholder="Enter Task Title" name="task_title">
         </div>
 
-        <label>Add Project Files (png,gif,jpeg,jpg,txt,pdf,doc) <span class="glyphicon glyphicon-file" aria-hidden="true"></span></label>
-		<div class="form-group">
+        <label class="form-label">Add Project Files (png,gif,jpeg,jpg,txt,pdf,doc) <i class="bi bi-file-earmark"></i></label>
+		<div class="mb-3">
            	<input type="file" class="form-control" name="photos[]" multiple>
        	</div>
 
-        <div class="form-group">
+        <div class="mb-3">
             <textarea class="form-control my-editor" rows="10" id="task" name="task"></textarea>
         </div>
         
     </div>
 
     <div class="col-md-4">
-        <div class="form-group">
-            <label>Assign to Project <span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span></label>
+        <div class="mb-3">
+            <label class="form-label">Assign to Project <i class="bi bi-pin-angle"></i></label>
             <select name="project_id" class="form-control selectpicker" data-style="btn-primary" style="width:100%;">
                 @foreach( $projects as $project )
                     <option value="{{ $project->id }}">{{ $project->project_name }}</option>
@@ -43,8 +41,8 @@
             </select>
         </div>
 
-        <div class="form-group">
-            <label>Assign to: <span class="glyphicon glyphicon-user" aria-hidden="true"></span></label>
+        <div class="mb-3">
+            <label class="form-label">Assign to: <i class="bi bi-person-fill"></i></label>
             <select id="user" name="user" class="form-control selectpicker" data-style="btn-info" style="width:100%;">
 				@foreach ( $users as $user)
 					<option value="{{ $user->id }}">{{ $user->name }}</option>
@@ -53,27 +51,22 @@
             </select>
         </div>
 
-        <div class="form-group">
-            <label>Select Priority <span class="glyphicon glyphicon-warning-sign" aria-hidden="true"></span></label>
+        <div class="mb-3">
+            <label class="form-label">Select Priority <i class="bi bi-exclamation-triangle"></i></label>
             <select name="priority" class="form-control selectpicker" data-style="btn-info" style="width:100%;">
               <option value="0">Normal</option>
               <option value="1">High</option>
             </select>
         </div>
 
-        <div class="form-group">
-            <label>Select Due Date <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span></label>
-            <div class='input-group date' id='datetimepicker1'>
-                <input type='text' class="form-control" name="duedate">
-                <span class="input-group-addon">
-                <span class="glyphicon glyphicon-calendar"></span>
-                </span>
-            </div>
+        <div class="mb-3">
+            <label class="form-label">Select Due Date <i class="bi bi-calendar-event"></i></label>
+            <input type="datetime-local" class="form-control" name="duedate">
         </div>
 
         <div class="btn-group">
             <input class="btn btn-primary" type="submit" value="Submit" onclick="return validateForm()">
-            <a class="btn btn-default" href="{{ redirect()->getUrlGenerator()->previous() }}">Go Back</a>
+            <a class="btn btn-secondary" href="{{ redirect()->getUrlGenerator()->previous() }}">Go Back</a>
         </div>
 
     </div>
@@ -86,26 +79,8 @@
 
 
 @section('scripts')
-
-    <script src="{{ asset('js/moment.js') }}"></script> 
-
-    <script src="{{ asset('js/bootstrap-datepicker.min.js') }}"></script>  
-
-    <script src="https://cdn.tiny.cloud/1/<?=getenv('TINY_KEY')?>/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
-
-    <script>
-        jQuery(document).ready(function() {
-
-            jQuery(function() {
-                jQuery('#datetimepicker1').datetimepicker( {
-                    defaultDate:'now',  // defaults to today
-                    format: 'YYYY-MM-DD hh:mm:ss',  // YEAR-MONTH-DAY hour:minute:seconds
-                    minDate:new Date()  // Disable previous dates, minimum is todays date
-                });
-            });
-        });
-    </script>
-
+<script src="{{ asset('js/moment.js') }}"></script> 
+<script src="https://cdn.tiny.cloud/1/<?=getenv('TINY_KEY')?>/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 <script>
   var editor_config = {
     //path_absolute : "/",

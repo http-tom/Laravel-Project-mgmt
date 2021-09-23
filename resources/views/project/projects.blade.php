@@ -6,18 +6,16 @@
 <h1>LIST OF ACTIVE PROJECTS</h1>
 
 <div class="new_project">
-  <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>&nbsp;Add New Project</button>
+  <button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#myModal"><i class="bi bi-plus"></i>&nbsp;Add New Project</button>
 </div>
 
 <!-- Modal -->
 <div id="myModal" class="modal fade" role="dialog">
   <div class="modal-dialog">
-
-    <!-- Modal content-->
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
         <h4 class="modal-title">Enter Project Title</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
       </div>
       <div class="modal-body">
         <form id="project_form" action="{{ route('project.store') }}" method="POST">
@@ -25,16 +23,16 @@
 
         <div class="row">
             <div class="col-md-12">
-            <div class="form-group">
+            <div class="mb-3">
               <input type="text" class="form-control" id="project" name="project">
             </div>
           </div>
 
         </div>
 
-        <div class="modal-footer">
-          <input class="btn btn-primary" type="submit" value="Submit" >
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <div class="modal-footer d-flex">
+          <button type="button" class="btn btn-secondary me-auto" data-bs-dismiss="modal">Close</button>
+          <input class="btn btn-primary" type="submit" value="Submit">
         </div>
 
         </form>
@@ -48,6 +46,7 @@
 
 
 
+@if ( !$projects->isEmpty() ) 
 <div class="table-responsive">
 <table class="table table-striped">
     <thead>
@@ -58,7 +57,6 @@
       </tr>
     </thead>
 
-@if ( !$projects->isEmpty() ) 
     <tbody>
     @foreach ( $projects  as $project)
       <tr>
@@ -67,23 +65,22 @@
            <a href="{{ route('task.list', [ 'projectid' => $project->id ]) }}">List all tasks</a>
         </td>
         <td>
-          <a class="btn btn-primary" href="{{ route('project.edit', [ 'id' => $project->id ]) }}"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>          
-          <a class="btn btn-danger" href="{{ route('project.delete', [ 'id' => $project->id ]) }}" Onclick="return ConfirmDelete();"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>&nbsp;&nbsp;
+          <a class="btn btn-primary" href="{{ route('project.edit', [ 'id' => $project->id ]) }}"><i class="bi bi-pencil-square"></i></a>          
+          <a class="btn btn-danger" href="{{ route('project.delete', [ 'id' => $project->id ]) }}" Onclick="return ConfirmDelete();"><i class="bi bi-trash"></i></a>&nbsp;&nbsp;
         </td>
 
       </tr>
 
     @endforeach
     </tbody>
+    
+    
+  </table>
+</div>
+
 @else 
     <p><em>There are no tasks assigned yet</em></p>
 @endif
-
-
-</table>
-</div>
-
-
 
 
 @stop
