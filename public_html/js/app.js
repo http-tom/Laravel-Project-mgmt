@@ -5234,8 +5234,13 @@ window._ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
 
 try {
   // window.$ = window.jQuery = require('jquery');
-  var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js"); //require('bootstrap');
+  var $ = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 
+  $.ajaxSetup({
+    headers: {
+      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+  }); // require('bootstrap');
 } catch (e) {}
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests
