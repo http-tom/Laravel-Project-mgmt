@@ -56,7 +56,7 @@ CREATE TABLE `projects` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=105 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 /*Data for the table `projects` */
 
@@ -74,7 +74,7 @@ CREATE TABLE `task_files` (
   PRIMARY KEY (`id`),
   KEY `task_files_task_id_foreign` (`task_id`),
   CONSTRAINT `task_files_task_id_foreign` FOREIGN KEY (`task_id`) REFERENCES `tasks` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 /*Data for the table `task_files` */
 
@@ -98,7 +98,7 @@ CREATE TABLE `tasks` (
   KEY `tasks_user_id_foreign` (`user_id`),
   CONSTRAINT `tasks_project_id_foreign` FOREIGN KEY (`project_id`) REFERENCES `projects` (`id`) ON DELETE CASCADE,
   CONSTRAINT `tasks_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=162 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 /*Data for the table `tasks` */
 
@@ -117,13 +117,13 @@ CREATE TABLE `users` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `users_email_unique` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=63 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 /*Data for the table `users` */
 
 insert  into `users`(`id`,`admin`,`name`,`email`,`password`,`remember_token`,`created_at`,`updated_at`) values 
 (1,0,'Not Assigned','not@assigned.com','',NULL,NULL,NULL),
-(5,1,'Demo User','demo@test.com','$2y$10$9PdOI6amvNuEZILOae9/VOg2TkxmNAlBMVOJnG1OuXTqipIJ8dGFq','o316476iw7HA1xU0FfAgudzGdIRSPJPFaf3QSmg0umcDmecbZzhuAJVhp41g','2017-08-29 12:08:01','2019-01-27 11:58:26');
+(2,1,'Demo User','demo@test.com','$2y$10$9PdOI6amvNuEZILOae9/VOg2TkxmNAlBMVOJnG1OuXTqipIJ8dGFq','o316476iw7HA1xU0FfAgudzGdIRSPJPFaf3QSmg0umcDmecbZzhuAJVhp41g','2017-08-29 12:08:01','2019-01-27 11:58:26');
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
