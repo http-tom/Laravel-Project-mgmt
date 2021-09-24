@@ -77,6 +77,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
 	Route::get('/tasks/deletefile/{id}', [TaskController::class,'deleteFile'])->name('task.deletefile') ;
 	Route::post('/tasks/update/{id}', [TaskController::class,'update'])->name('task.update') ;
 	Route::get('/tasks/completed/{id}',[TaskController::class,'completed'])->name('task.completed');
+	Route::get('/tasks/download/csv', [TaskController::class,'downloadcsv'])->name('tasks.downloadcsv');
 
 	// =====================  USERS   ============================
 	Route::get('/users', [UserController::class,'index'])->name('user.index'); 
@@ -90,5 +91,6 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
     Route::get('/users/disable/{id}', [UserController::class,'disable'])->name('user.disable') ;
 
 	Route::get('/about', [PageController::class,'about'])->name('about');
+
 
 });

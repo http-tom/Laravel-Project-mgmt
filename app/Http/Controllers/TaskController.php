@@ -324,5 +324,10 @@ class TaskController extends Controller
         return view('task.search', compact('value', 'tasks')  ) ;
     }
 
+    public function downloadcsv() {
+		$tasks = \App\Task::all();
+		$csvExporter = new \Laracsv\Export();
+		return $csvExporter->build($tasks, ['*'])->download('tasks.csv');
+	}
 
 }
