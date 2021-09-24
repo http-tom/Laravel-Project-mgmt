@@ -53,6 +53,10 @@ npm install
 php artisan serve
 ```
 
+### TinyMCE
+
+[Sign up / login](https://www.tiny.cloud/) to get a key to use TinyMCE - add this to .env file under TINY_KEY.
+This is optional, will fallback to using a textarea if the key is left empty
 
 ### ROUTES
 

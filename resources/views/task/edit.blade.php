@@ -137,6 +137,10 @@
 
 @section('scripts')
 <script src="{{ asset('js/moment.js') }}"></script> 
+<?php
+if(!empty(getenv('TINY_KEY')))
+{
+  ?>
 <script src="https://cdn.tiny.cloud/1/<?=getenv('TINY_KEY')?>/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 <script>
   var editor_config = {
@@ -182,5 +186,8 @@
 
   tinymce.init(editor_config);
 </script>
+<?php
+}
+?>
 
 @stop
