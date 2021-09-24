@@ -118,4 +118,19 @@ class ProjectController extends Controller
     // }
 
 
+/*===============================================
+DOWNLOAD PROJECTS DATA
+===============================================*/
+public function download($type) {
+    switch($type) {
+        case 'csv':
+            $tasks = \App\Project::all();
+            $fields = ['id','project_name','created_at','updated_at'];
+            $csvExporter = new \Laracsv\Export();
+            return $csvExporter->build($tasks, $fields)->download('projects.csv');
+        break;
+        default:
+            throw new \ErrorException("Invalid type specified");
+        }
+}
 }

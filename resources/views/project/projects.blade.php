@@ -78,6 +78,8 @@
   </table>
 </div>
 
+<a href="/admin/projects/download/csv" class="btn btn-primary">Download</a>
+
 @else 
     <p><em>There are no tasks assigned yet</em></p>
 @endif

@@ -54,10 +54,9 @@
 
 
 
-<div class="btn-group">
-    <a class="btn btn-secondary" href="{{ redirect()->getUrlGenerator()->previous() }}">Go Back</a>
-</div>
+<a class="btn btn-secondary" href="{{ redirect()->getUrlGenerator()->previous() }}">Go Back</a>
 
+<!-- <a href="/admin/tasks/download/csv" class="btn btn-primary">Download</a> -->
 
 
 

@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use App\Project;
 use App\Task;
 use App\TaskFiles;
-use App\User; 
+use App\User;
 
 use Illuminate\Support\Facades\Input; 
 
@@ -324,10 +324,20 @@ class TaskController extends Controller
         return view('task.search', compact('value', 'tasks')  ) ;
     }
 
-    public function downloadcsv() {
-		$tasks = \App\Task::all();
-		$csvExporter = new \Laracsv\Export();
-		return $csvExporter->build($tasks, ['*'])->download('tasks.csv');
+/*===============================================
+    DOWNLOAD TASKS DATA
+===============================================*/
+    public function download($type) {
+        switch($type) {
+            case 'csv':
+                $tasks = \App\Task::all();
+                $fields = ['id','user_id','project_id','task_title','task','priority','completed','created_at','updated_at','duedate'];
+                $csvExporter = new \Laracsv\Export();
+                return $csvExporter->build($tasks, $fields)->download('tasks.csv');
+            break;
+            default:
+                throw new \ErrorException("Invalid type specified");
+            }
 	}
 
 }

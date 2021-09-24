@@ -45,6 +45,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
 
 	// Store the new project from the form posted with the view Above
 	Route::post('/projects/store', [ProjectController::class,'store'])->name('project.store');
+	Route::get('/projects/download/{type}',[ProjectController::class,'download'])->name('project.download');
 
 
 
@@ -77,7 +78,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
 	Route::get('/tasks/deletefile/{id}', [TaskController::class,'deleteFile'])->name('task.deletefile') ;
 	Route::post('/tasks/update/{id}', [TaskController::class,'update'])->name('task.update') ;
 	Route::get('/tasks/completed/{id}',[TaskController::class,'completed'])->name('task.completed');
-	Route::get('/tasks/download/csv', [TaskController::class,'downloadcsv'])->name('tasks.downloadcsv');
+	Route::get('/tasks/download/{type}',[TaskController::class,'download'])->name('task.download');
 
 	// =====================  USERS   ============================
 	Route::get('/users', [UserController::class,'index'])->name('user.index'); 
