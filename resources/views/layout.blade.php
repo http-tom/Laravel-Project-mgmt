@@ -102,7 +102,7 @@
 
                 <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 text-right">
                     <div class="design">
-                        With thanks to <a target="_blank" href="http://juancadima.com">JC</a>
+                        With thanks to <a target="_blank" href="https://jcadima.dev/">JC</a> for the original <a href="https://github.com/jcadima/Laravel-Project-mgmt">Project Task Manager</a>.
                     </div>
                 </div>
             </div>
