@@ -113,23 +113,27 @@ class TaskController extends Controller
 /*===============================================
     SORT TASKS
 ===============================================*/
-    public function sort( $key ) {
+    public function sort( $key, $dir = 'ASC' ) {
         $users = User::all() ;
         // dd ($key) ; 
         switch($key) {
             case 'task':
-                $tasks = Task::orderBy('task')->paginate(10); // replace get() with paginate()
+                $tasks = Task::orderBy('task', $dir)->paginate(10); // replace get() with paginate()
             break;
             case 'priority':
-                $tasks = Task::orderBy('priority')->paginate(10);
+                $tasks = Task::orderBy('priority', $dir)->paginate(10);
             break;
             case 'completed':
-                $tasks = Task::orderBy('completed')->paginate(10);
+                $tasks = Task::orderBy('completed', $dir)->paginate(10);
             break;
+            case 'due':
+                $tasks = Task::orderBy('duedate', $dir)->paginate(10);
+                break;
         }
 
         return view('task.tasks')->with('users', $users)
-                                ->with('tasks', $tasks) ;
+                                ->with('tasks', $tasks)
+                                ->with('direction', $dir) ;
     }
 
 /*===============================================

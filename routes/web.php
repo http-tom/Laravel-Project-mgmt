@@ -64,7 +64,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
 	Route::get('/tasks/search', [TaskController::class,'searchTask'])->name('task.search');
 
 	// Sort Table
-	Route::get('/tasks/sort/{key}', [TaskController::class,'sort'])->name('task.sort') ;
+	Route::get('/tasks/sort/{key}/{dir?}', [TaskController::class,'sort'])->name('task.sort') ;
 
 	Route::get('/tasks/edit/{id}',[TaskController::class,'edit'])->name('task.edit');
 

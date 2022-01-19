@@ -23,6 +23,10 @@
 
 </div>
 
+<?php
+$dir = $direction == 'asc' ? 'desc' : 'asc';
+?>
+
 @if ( !$tasks->isEmpty() )
 <div class="table-responsive">
 <table class="table table-striped">
@@ -31,7 +35,7 @@
             <th>Created</th>
             <th><a href="{{ route('task.sort', [ 'key' => 'task' ]) }}">Task Title <i class="bi bi-sort-alpha-down"></i> </a></th>
             <th>Assigned To / Project</th>
-            <th>Due</th>
+            <th><a href="{{ route('task.sort', [ 'key' => 'due', 'dir' => $dir ]) }}">Due <i class="bi bi-sort-alpha-down"></i> </a></th>
             <th><a href="{{ route('task.sort', [ 'key' => 'priority' ]) }}">Priority <i class="bi bi-sort-alpha-down"></i> </a></th>
             <th><a href="{{ route('task.sort', [ 'key' => 'completed' ]) }}">Status <i class="bi bi-sort-alpha-down"></i> </a></th>
             <th>Actions</th>
