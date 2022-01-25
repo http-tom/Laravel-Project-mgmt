@@ -24,7 +24,7 @@
 </div>
 
 <?php
-$dir = $direction == 'asc' ? 'desc' : 'asc';
+$dir = isset($direction) && $direction == 'asc' ? 'desc' : 'asc';
 ?>
 
 @if ( !$tasks->isEmpty() )
